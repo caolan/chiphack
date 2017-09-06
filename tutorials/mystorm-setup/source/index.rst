@@ -88,6 +88,16 @@ For Mac::
 You may need to use a different value for ``SERIAL`` depending on your
 machine.
 
+If you get a permissions error accessing /dev/ttyACM0 on Linux you may need to add your user to the 'dialout' group. You can confirm this by checking the permissions on /dev/ttyACM0:
+
+  $ ls -lah /dev/ttyACM0
+  crw-rw---- 1 root dialout 166, 0 Sep  6 09:49 /dev/ttyACM0
+
+And you can add your current user to the dialout group by doing:
+
+  sudo usermod -a -G dialout $USER
+  
+
 Uploading your design (Windows)
 -------------------------------
 
